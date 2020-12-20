@@ -1,0 +1,286 @@
+a {
+  color: #ff4000;
+}
+
+body {
+  /*
+  background-color: #faddba;
+  background-color: #f5f1ee;
+  background-color: #fae8cd;*/
+  color: #ff4000;
+  background-image: url(../assets/images/cream-tile.svg);
+  font-family: 'Josefin Slab', serif;
+  font-weight: 500;
+  border-top: 0.5rem solid;
+  position: relative;
+  overflow-x: hidden;
+
+  border-image: linear-gradient(
+      to right,
+      #651b00 25%,
+      #ff4000 25%,
+      #ff4000 50%,
+      #ff8800 50%,
+      #ff8800 75%,
+      #5f5815 75%
+    )
+    5;
+
+  padding: 0rem 0rem 9rem 0rem;
+}
+
+header {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 2rem 0 0 0;
+}
+
+header div {
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  background-image: url(../assets/images/white-tile.svg);
+}
+
+header img {
+  width: 100%;
+
+  border-bottom-right-radius: 3rem;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+
+header h1 {
+  font-family: 'Homemade Apple', cursive;
+  margin: 0 0 0rem 0;
+  text-decoration: none;
+}
+
+header h1 a {
+  text-decoration: none;
+}
+
+header h1 span {
+  font-size: 66%;
+}
+
+header h2 {
+  margin: 0;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 3rem;
+  background-image: url(../assets/images/white-tile.svg);
+  padding: 1rem;
+}
+
+main ul {
+  padding-left: 0px;
+  width: 10%;
+  list-style: none;
+}
+
+main ul li {
+  margin-bottom: 1rem;
+}
+
+main ul li span {
+  font-weight: 900;
+  margin-bottom: 0px;
+}
+
+main section {
+  width: 90%;
+}
+
+footer {
+  position: fixed;
+  font-size: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 1rem;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  padding: 0.5rem;
+  background-image: url(../assets/images/brown-tile.svg);
+
+  background-repeat: repeat;
+  font-weight: 900;
+}
+
+footer p {
+  text-align: center;
+}
+
+footer a {
+  margin-left: 0.5rem;
+  font-weight: 900;
+}
+
+@keyframes tobackground {
+  100% {
+    z-index: 999;
+  }
+}
+
+footer::before {
+  content: '';
+  width: 100%;
+  max-width: 100vw;
+  display: inline-block;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  top: -11vw;
+  background-image: url(../assets/images/footer.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 1040px) {
+  footer {
+    position: fixed;
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-image: url(../assets/images/brown-tile.svg);
+
+    background-repeat: repeat;
+  }
+
+  footer::before {
+    content: '';
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    display: inline-block;
+    height: 200px;
+    position: absolute;
+    left: calc(50% - 480px);
+    top: -107px;
+    background-image: url(../assets/images/footer.svg);
+    background-repeat: no-repeat;
+  }
+}
+
+/* clouds */
+
+/* define the floating animation; just a simple position shift */
+@keyframes cloud_floating {
+  0% {
+    left: -5%;
+  }
+  100% {
+    left: 105%;
+  }
+}
+@-ms-keyframes cloud_floating {
+  0% {
+    left: -5%;
+  }
+  100% {
+    left: 105%;
+  }
+}
+@-moz-keyframes cloud_floating {
+  0% {
+    left: -5%;
+  }
+  100% {
+    left: 105%;
+  }
+}
+@-webkit-keyframes cloud_floating {
+  0% {
+    left: -5%;
+  }
+  100% {
+    left: 105%;
+  }
+}
+
+/* style for banner container */
+.icon-cloud {
+  background-image: url(../assets/images/cloud.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+/* basic cloud element. put bg img stuff here. for now i've used font-awesome */
+.cloud {
+  position: absolute;
+  display: block;
+  width: 100px;
+  height: 50px;
+  animation: cloud_floating 40s linear infinite;
+  -ms-animation: cloud_floating 40s linear infinite;
+  -moz-animation: cloud_floating 40s linear infinite;
+  -webkit-animation: cloud_floating 40s linear infinite;
+  top: 20%;
+  left: 20vw;
+  z-index: -500;
+}
+
+/* altering size, alignment and initial position */
+.cloud2 {
+  font-size: 5em;
+
+  animation-direction: reverse;
+  width: 150px;
+  height: 75px;
+  animation-duration: 60s;
+  animation-delay: -5s;
+  -ms-animation-duration: 60s;
+  -ms-animation-delay: -5s;
+  -moz-animation-duration: 60s;
+  -moz-animation-delay: -5s;
+  -webkit-animation-duration: 60s;
+  -webkit-animation-delay: -5s;
+  top: 40%;
+  left: 40vw;
+}
+.cloud3 {
+  font-size: 2em;
+  width: 80px;
+  height: 40px;
+  animation-duration: 50s;
+  animation-delay: -20s;
+  -ms-animation-duration: 50s;
+  -ms-animation-delay: -20s;
+  -moz-animation-duration: 50s;
+  -moz-animation-delay: -20s;
+  -webkit-animation-duration: 50s;
+  -webkit-animation-delay: -20s;
+  top: 60%;
+  left: 60vw;
+}
+.cloud4 {
+  animation-direction: reverse;
+  width: 150px;
+  height: 75px;
+  animation-duration: 70s;
+  animation-delay: -40s;
+  -ms-animation-duration: 70s;
+  -ms-animation-delay: -40s;
+  -moz-animation-duration: 70s;
+  -moz-animation-delay: -40s;
+
+  -webkit-animation-duration: 70s;
+  -webkit-animation-delay: -40s;
+  top: 80%;
+  left: 80vw;
+}
