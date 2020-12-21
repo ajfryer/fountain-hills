@@ -1,5 +1,12 @@
-a {
-  color: #ff4000;
+:root {
+  --white: #fdfaee;
+  --cream: #efdbcc;
+  --tan: #f3c69d;
+  --brown: #651b00;
+  --red: #ff4000;
+  --orange: #ff8800;
+  --lightGreen: #b0ac86;
+  --green: #5f5815;
 }
 
 body {
@@ -7,7 +14,7 @@ body {
   background-color: #faddba;
   background-color: #f5f1ee;
   background-color: #fae8cd;*/
-  color: #ff4000;
+  color: var(--red);
   background-image: url(../assets/images/cream-tile.svg);
   font-family: 'Josefin Slab', serif;
   font-weight: 500;
@@ -17,14 +24,18 @@ body {
 
   border-image: linear-gradient(
       to right,
-      #651b00 25%,
-      #ff4000 25%,
-      #ff4000 50%,
-      #ff8800 50%,
-      #ff8800 75%,
-      #5f5815 75%
+      var(--brown) 25%,
+      var(--red) 25%,
+      var(--red) 50%,
+      var(--orange) 50%,
+      var(--orange) 75%,
+      var(--green) 75%
     )
     5;
+}
+
+a {
+  color: var(--red);
 }
 
 header {
@@ -36,9 +47,10 @@ header {
 
 header {
   max-width: 960px;
-  margin: 4rem auto 3rem auto;
+  margin: 3rem auto 2rem auto;
   display: flex;
-
+  flex-direction: column;
+  padding: 0 0.5rem;
   position: relative;
   align-items: center;
 }
@@ -52,21 +64,18 @@ header::before {
   border-radius: 50%;
   width: 300px;
   position: absolute;
-  z-index: -999;
+  z-index: -500;
 
   background-image: url(../assets/images/tan-tile.svg);
 }
 
 header h1 {
   text-align: center;
-  font-family: 'Pacifico', cursive;
   font-family: 'Homemade Apple', cursive;
   position: relative;
 
-  font-size: 3rem;
-  margin: 0 0 00;
+  margin: 0 0 1rem 0;
 
-  width: 50%;
   border-radius: 50%;
 }
 
@@ -76,8 +85,6 @@ header h2 {
   font-weight: 500;
   line-height: 1.66;
   text-indent: 2rem;
-
-  width: 50%;
   display: flex;
   flex-direction: column;
 }
@@ -85,6 +92,7 @@ header h2 {
 header h2 span {
   text-align: right;
   font-weight: 600;
+  margin-top: 0.5rem;
 }
 
 main {
@@ -109,7 +117,10 @@ section {
   margin: 0 auto;
 
   border-radius: 1rem;
-  z-index: 0;
+}
+
+section:hover {
+  box-shadow: inset 0 0 0 0.5rem var(--tan);
 }
 
 section img {
@@ -151,6 +162,7 @@ footer {
 
   background-repeat: repeat;
   font-weight: 900;
+  z-index: 3;
 }
 
 footer p {
@@ -160,6 +172,7 @@ footer p {
 footer a {
   margin-left: 0.5rem;
   font-weight: 900;
+  z-index: 3;
 }
 
 @keyframes tobackground {
@@ -176,13 +189,48 @@ footer::before {
   height: 200px;
   position: absolute;
   left: 0;
-  top: -11vw;
+  top: -16.5vw;
   background-image: url(../assets/images/footer.svg);
-  background-size: 100%;
+  background-size: 150%;
+  background-position-x: 50%;
   background-repeat: no-repeat;
 }
 
 @media screen and (min-width: 1040px) {
+  header {
+    max-width: 960px;
+    margin: 4rem auto 3rem auto;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+  }
+
+  header h1 {
+    text-align: center;
+
+    font-family: 'Homemade Apple', cursive;
+    position: relative;
+
+    font-size: 3rem;
+    margin: 0 0 00;
+
+    width: 50%;
+    border-radius: 50%;
+  }
+
+  header h2 {
+    max-width: 900px;
+    margin: 0 auto 0 auto;
+    font-weight: 500;
+    line-height: 1.66;
+    text-indent: 2rem;
+
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+
   footer {
     position: fixed;
 
@@ -206,6 +254,8 @@ footer::before {
     left: calc(50% - 480px);
     top: -107px;
     background-image: url(../assets/images/footer.svg);
+    background-position-x: initial;
+    background-size: 100%;
     background-repeat: no-repeat;
   }
 }
@@ -247,34 +297,43 @@ footer::before {
 }
 
 /* style for banner container */
-.icon-cloud {
+
+aside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -999;
+}
+
+aside i {
   background-image: url(../assets/images/cloud.svg);
   background-size: 100%;
   background-repeat: no-repeat;
-}
-
-/* basic cloud element. put bg img stuff here. for now i've used font-awesome */
-.cloud {
-  position: absolute;
+  position: relative;
   display: block;
-  width: 100px;
-  height: 50px;
+
   animation: cloud_floating 40s linear infinite;
   -ms-animation: cloud_floating 40s linear infinite;
   -moz-animation: cloud_floating 40s linear infinite;
   -webkit-animation: cloud_floating 40s linear infinite;
-  top: 20%;
-  left: 20vw;
-  z-index: -500;
+}
+
+/* basic cloud element. put bg img stuff here. for now i've used font-awesome */
+aside i:nth-child(1) {
+  width: 150px;
+  height: 75px;
+  top: 20vh;
 }
 
 /* altering size, alignment and initial position */
-.cloud2 {
-  font-size: 5em;
-
+aside i:nth-child(2) {
   animation-direction: reverse;
-  width: 150px;
-  height: 75px;
+  width: 100px;
+  height: 50px;
+
   animation-duration: 60s;
   animation-delay: -5s;
   -ms-animation-duration: 60s;
@@ -283,28 +342,29 @@ footer::before {
   -moz-animation-delay: -5s;
   -webkit-animation-duration: 60s;
   -webkit-animation-delay: -5s;
-  top: 40%;
-  left: 40vw;
+  top: 30vh;
 }
-.cloud3 {
-  font-size: 2em;
-  width: 80px;
-  height: 40px;
+aside i:nth-child(3) {
+  width: 100px;
+  height: 50px;
+
   animation-duration: 50s;
-  animation-delay: -20s;
+
+  animation-delay: -5s;
   -ms-animation-duration: 50s;
-  -ms-animation-delay: -20s;
+  -ms-animation-delay: -5s;
   -moz-animation-duration: 50s;
-  -moz-animation-delay: -20s;
+  -moz-animation-delay: -5s;
   -webkit-animation-duration: 50s;
-  -webkit-animation-delay: -20s;
-  top: 60%;
-  left: 60vw;
+  -webkit-animation-delay: -5s;
+  top: 50vh;
 }
-.cloud4 {
+aside i:nth-child(4) {
   animation-direction: reverse;
+
   width: 150px;
   height: 75px;
+  /*
   animation-duration: 70s;
   animation-delay: -40s;
   -ms-animation-duration: 70s;
@@ -313,7 +373,6 @@ footer::before {
   -moz-animation-delay: -40s;
 
   -webkit-animation-duration: 70s;
-  -webkit-animation-delay: -40s;
-  top: 80%;
-  left: 80vw;
+  -webkit-animation-delay: -40s;*/
+  top: 60vh;
 }
