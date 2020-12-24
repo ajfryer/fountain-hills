@@ -118,6 +118,7 @@ footer {
 
   background-repeat: repeat;
   font-weight: 900;
+  z-index: 3;
 }
 
 footer p {
@@ -127,6 +128,7 @@ footer p {
 footer a {
   margin-left: 0.5rem;
   font-weight: 900;
+  z-index: 3;
 }
 
 @keyframes tobackground {
@@ -143,9 +145,10 @@ footer::before {
   height: 200px;
   position: absolute;
   left: 0;
-  top: -11vw;
+  top: -16.5vw;
   background-image: url(../assets/images/footer.svg);
-  background-size: 100%;
+  background-size: 150%;
+  background-position-x: 50%;
   background-repeat: no-repeat;
 }
 
@@ -173,6 +176,8 @@ footer::before {
     left: calc(50% - 480px);
     top: -107px;
     background-image: url(../assets/images/footer.svg);
+    background-position-x: initial;
+    background-size: 100%;
     background-repeat: no-repeat;
   }
 }
@@ -213,35 +218,42 @@ footer::before {
   }
 }
 
-/* style for banner container */
-.icon-cloud {
+aside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -999;
+}
+
+aside i {
   background-image: url(../assets/images/cloud.svg);
   background-size: 100%;
   background-repeat: no-repeat;
-}
-
-/* basic cloud element. put bg img stuff here. for now i've used font-awesome */
-.cloud {
-  position: absolute;
+  position: relative;
   display: block;
-  width: 100px;
-  height: 50px;
+
   animation: cloud_floating 40s linear infinite;
   -ms-animation: cloud_floating 40s linear infinite;
   -moz-animation: cloud_floating 40s linear infinite;
   -webkit-animation: cloud_floating 40s linear infinite;
-  top: 20%;
-  left: 20vw;
-  z-index: -500;
+}
+
+/* basic cloud element. put bg img stuff here. for now i've used font-awesome */
+aside i:nth-child(1) {
+  width: 150px;
+  height: 75px;
+  top: 20vh;
 }
 
 /* altering size, alignment and initial position */
-.cloud2 {
-  font-size: 5em;
-
+aside i:nth-child(2) {
   animation-direction: reverse;
-  width: 150px;
-  height: 75px;
+  width: 100px;
+  height: 50px;
+
   animation-duration: 60s;
   animation-delay: -5s;
   -ms-animation-duration: 60s;
@@ -250,28 +262,29 @@ footer::before {
   -moz-animation-delay: -5s;
   -webkit-animation-duration: 60s;
   -webkit-animation-delay: -5s;
-  top: 40%;
-  left: 40vw;
+  top: 30vh;
 }
-.cloud3 {
-  font-size: 2em;
-  width: 80px;
-  height: 40px;
+aside i:nth-child(3) {
+  width: 100px;
+  height: 50px;
+
   animation-duration: 50s;
-  animation-delay: -20s;
+
+  animation-delay: -5s;
   -ms-animation-duration: 50s;
-  -ms-animation-delay: -20s;
+  -ms-animation-delay: -5s;
   -moz-animation-duration: 50s;
-  -moz-animation-delay: -20s;
+  -moz-animation-delay: -5s;
   -webkit-animation-duration: 50s;
-  -webkit-animation-delay: -20s;
-  top: 60%;
-  left: 60vw;
+  -webkit-animation-delay: -5s;
+  top: 50vh;
 }
-.cloud4 {
+aside i:nth-child(4) {
   animation-direction: reverse;
+
   width: 150px;
   height: 75px;
+  /*
   animation-duration: 70s;
   animation-delay: -40s;
   -ms-animation-duration: 70s;
@@ -280,7 +293,6 @@ footer::before {
   -moz-animation-delay: -40s;
 
   -webkit-animation-duration: 70s;
-  -webkit-animation-delay: -40s;
-  top: 80%;
-  left: 80vw;
+  -webkit-animation-delay: -40s;*/
+  top: 60vh;
 }
