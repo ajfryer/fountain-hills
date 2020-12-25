@@ -36,29 +36,29 @@ header {
 
 header nav {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin: 2rem 0 0 0;
+  flex-direction: column;
+
+  margin: 0.5rem 0 0 0;
 }
 
 header div {
-  border-top-right-radius: 1rem;
-  border-top-left-radius: 1rem;
+  border-top-right-radius: 0rem;
+  border-top-left-radius: 0rem;
   background-image: url(../assets/images/white-tile.svg);
+  overflow: hidden;
 }
 
 header img {
   width: 100%;
 
   border-bottom-right-radius: 3rem;
-  border-top-right-radius: 1rem;
-  border-top-left-radius: 1rem;
 }
 
 header h1 {
   font-family: 'Homemade Apple', cursive;
   margin: 0 0 0rem 0;
   text-decoration: none;
+  font-size: 5vw;
 }
 
 header h1 a {
@@ -71,22 +71,26 @@ header h1 span {
 
 header h2 {
   margin: 0;
+  font-size: 5vw;
+  margin: 0.5rem 0 0.25rem auto;
 }
 
 main {
   max-width: 960px;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
-  gap: 3rem;
+  gap: 0rem;
   background-image: url(../assets/images/white-tile.svg);
   padding: 1rem;
 }
 
 main ul {
   padding-left: 0px;
-  width: 10%;
   list-style: none;
+  display: flex;
+  margin: 0.5rem auto;
 }
 
 main ul li {
@@ -99,7 +103,10 @@ main ul li span {
 }
 
 main section {
-  width: 90%;
+}
+
+main section h3 {
+  margin: 0;
 }
 
 footer {
@@ -153,6 +160,46 @@ footer::before {
 }
 
 @media screen and (min-width: 1040px) {
+  header nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2rem 0 0 0;
+  }
+
+  header div {
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    background-image: url(../assets/images/white-tile.svg);
+    overflow: hidden;
+  }
+
+  header img {
+    width: 100%;
+
+    border-bottom-right-radius: 3rem;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+  }
+
+  header h1 {
+    font-family: 'Homemade Apple', cursive;
+    margin: 0 0 0rem 0;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+
+  header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  main ul {
+    width: 100%;
+    justify-content: space-between;
+  }
+
   footer {
     position: fixed;
 
